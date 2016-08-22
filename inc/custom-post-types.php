@@ -83,6 +83,12 @@ function register_recipes_post_type() {
 		'items_list_navigation' => __( 'Recipes list navigation', 'crockpot_2016' ),
 		'filter_items_list'     => __( 'Filter Recipes list', 'crockpot_2016' ),
 	);
+	$rewrite = array(
+		'slug'                  => 'recipes',
+		'with_front'            => false,
+		'pages'                 => true,
+		'feeds'                 => true,
+	);
 	$args = array(
 		'label'                 => __( 'Recipe', 'crockpot_2016' ),
 		'description'           => __( 'Crockpot Recipes', 'crockpot_2016' ),
@@ -101,6 +107,7 @@ function register_recipes_post_type() {
 		'has_archive'           => true,
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
+		'rewrite'               => $rewrite,
 		'capability_type'       => 'post',
 	);
 	register_post_type( 'recipe', $args );

@@ -1,6 +1,19 @@
-//colours
-$cp_red:     #b5161b;
-$cp_grey_dk: #222221;
+// Colours
+$cp_red:        #b5161b; // Sale Prices
+$cp_grey_dk:    #222221; // Headers / Titles
+$cp_grey_med:   #444444; // Body text color
+$cp_grey_med_2: #666666; // Fine text
+$cp_grey_lt:    #dfdfdf; // Primary Nav Dividers
+$cp_grey_lt2:   #e3e3e3; // Line work
+$cp_grey_lt3:   #c1c1c1;
+$cp_orange_1:   #f7a81b; // Global promo bar
+$cp_orange_2:   #edab2b; // Footer Nav Dividers
+$cp_orange_3:   #ed8f1e; // Order total text;
+
+// Gradients
+@mixin header-shade() {
+  @include background-image(linear-gradient($cp_grey_lt2, $cp_grey_lt3));
+}
 
 // Breakpoint
 $xs: 320px;
@@ -10,3 +23,9 @@ $lg: 992px;
 $xl: 1200px;
 
 $site-width: 960px;
+
+// Typography
+$font-body: Helvetica, Arial, Sans-serif ;
+$font-head: $font-body;
+$text-color: $cp_grey_med;
+$header-color: $cp_grey_dk;

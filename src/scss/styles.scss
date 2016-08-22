@@ -1,8 +1,11 @@
 @import "compass/css3";
 @import "compass/reset";
+@import "compass/layout";
+@import "compass/typography";
+
 @import "utilities/variables";
 @import "utilities/grids";
 @import "utilities/mixins";
-@import "compass/layout";
+
 @import "typography";
 @import "layout";
