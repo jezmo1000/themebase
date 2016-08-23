@@ -71,6 +71,7 @@ h1, h2, h3, h4, h5 {
   line-height: 1.5;
   font-weight: bold;
   color: #222221;
+  margin-bottom: 10px;
 }
 h1 a, h2 a, h3 a, h4 a, h5 a {
   color: inherit;
@@ -78,8 +79,8 @@ h1 a, h2 a, h3 a, h4 a, h5 a {
 }
 
 h1 {
-  font-size: 30px;
-  font-size: 3rem;
+  font-size: 23px;
+  font-size: 2.3rem;
 }
 
 h2 {
@@ -104,17 +105,43 @@ h5 {
 
 p, li, a {
   font-family: Helvetica, Arial, Sans-serif;
-  font-size: 14px;
-  font-size: 1.4rem;
 }
 
 p {
-  color: grey;
+  color: #222221;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1.57143;
+}
+
+p, ol, ul {
+  margin-bottom: 20px;
+}
+
+li {
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 1.83333;
+  margin-bottom: 10px;
+  color: #666666;
 }
 
 article ol, article ul {
+  padding-left: 20px;
+}
+article ul {
   list-style: disc;
-  padding-left: 40px;
+}
+article ol {
+  list-style: decimal;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
 }
 
 /* =WordPress Core
@@ -232,6 +259,28 @@ a img.aligncenter {
   margin-right: auto;
 }
 #content:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+header {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+header:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+.nav--primary {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.nav--primary:after {
   content: " ";
   display: block;
   clear: both;

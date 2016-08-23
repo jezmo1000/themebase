@@ -29,6 +29,12 @@ function register_product_post_type() {
 		'items_list_navigation' => __( 'Products list navigation', 'crockpot_2016' ),
 		'filter_items_list'     => __( 'Filter Products list', 'crockpot_2016' ),
 	);
+	$rewrite = array(
+		'slug'                  => 'products',
+		'with_front'            => false,
+		'pages'                 => true,
+		'feeds'                 => true,
+	);
 	$args = array(
 		'label'                 => __( 'Product', 'crockpot_2016' ),
 		'description'           => __( 'Crockpot product range', 'crockpot_2016' ),
@@ -47,6 +53,7 @@ function register_product_post_type() {
 		'has_archive'           => true,
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
+		'rewrite'               => $rewrite,
 		'capability_type'       => 'post',
 	);
 	register_post_type( 'product', $args );
@@ -57,7 +64,7 @@ add_action( 'init', 'register_product_post_type', 0 );
 function register_recipes_post_type() {
 
 	$labels = array(
-		'name'                  => _x( 'Recipe', 'Post Type General Name', 'crockpot_2016' ),
+		'name'                  => _x( 'Recipes', 'Post Type General Name', 'crockpot_2016' ),
 		'singular_name'         => _x( 'Recipe', 'Post Type Singular Name', 'crockpot_2016' ),
 		'menu_name'             => __( 'Recipes', 'crockpot_2016' ),
 		'name_admin_bar'        => __( 'Recipes', 'crockpot_2016' ),

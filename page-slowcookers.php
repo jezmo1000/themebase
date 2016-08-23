@@ -1,7 +1,9 @@
 <?php
 /**
  * The template for displaying archive pages.
- * 
+ *
+ * Template Name: Slow Cooker Template
+ *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package crockpot-2016
@@ -17,22 +19,28 @@ get_header(); ?>
 
 			<header class="page-header">
 				<?php
-					the_archive_title( '<h1 class="page-title">', ' - Slow Cooker</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
+					the_title( '<h1 class="page-title">', '</h1>' );
 				?>
 			</header><!-- .page-header -->
 
 			<?php
 
-			while ( have_posts() ) : the_post();
+			$args = array(
+				'post_type' => 'product',
+				'tax_query' => array(
+						array(
+							'taxonomy' => 'type',
+							'field'    => 'slug',
+							'terms'    => 'slow-cookers',
+						),
+					),
+			);
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				// get_template_part( 'template-parts/content', get_post_format() );
-				get_template_part( 'template-parts/content', 'producttile' );
+			$the_query = new WP_Query( $args );
+			/* Start the Loop */
+			while ( $the_query->have_posts() ) : $the_query->the_post();
+
+				get_template_part( 'template-parts/content', 'product-tile' );
 
 			endwhile;
 

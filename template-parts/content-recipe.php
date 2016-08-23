@@ -40,9 +40,9 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
-	<?php if( get_field('ingredients') ) {
-			the_field('ingredients');
-	} ?>
+
+	<?php get_template_part( 'template-parts/content', 'ingredients' ); ?>
+	<?php get_template_part( 'template-parts/content', 'timings' ); ?>
 
 	<footer class="entry-footer">
 		<?php  crockpot_2016_entry_footer(); ?>

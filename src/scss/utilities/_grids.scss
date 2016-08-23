@@ -4,6 +4,8 @@
 @import "susy";
 
 $susy: (
+  container: 960px,
+  gutter-position: inside,
   columns: 12,
-  gutters: 1/4,
+  gutters: 40px / 90px,
 );

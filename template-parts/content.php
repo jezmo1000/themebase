@@ -7,8 +7,21 @@
  * @package crockpot-2016
  */
 
+// Get a list of terms based on parent term
+$term_id = get_term_by( 'slug', 'slow-cookers', 'type' )->term_id;
+$terms = get_terms( array(
+    'taxonomy' => 'type',
+		'child_of' => $term_id,
+    'hide_empty' => false,
+) );
+if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+	echo '<ul>';
+		foreach ($terms as $term) {
+			echo '<li><a href="'. get_term_link( $term ) .'">' . $term->name . '</a></li>';
+		}
+	echo '</ul>';
+}
 ?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
@@ -40,10 +53,8 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
-	<?php if( get_field('ingredients') ) {
-			the_field('ingredients');
-	} ?>
-
+	<?php get_template_part( 'template-parts/content', 'ingredients' ); ?>
+	<?php get_template_part( 'template-parts/content', 'timings' ); ?>
 	<footer class="entry-footer">
 		<?php crockpot_2016_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
