@@ -116,7 +116,7 @@ function crockpot_2016_scripts() {
 
 	// wp_enqueue_style( 'crockpot-css', get_template_directory_uri() . '/dist/css/all.min.css' );
 	wp_enqueue_style( 'crockpot-css', get_template_directory_uri() . '/dist/css/styles.css' );
-	
+
 	wp_enqueue_script( 'crockpot-js', get_template_directory_uri() . '/dist/js/app.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -166,4 +166,11 @@ function breaks2list( $str, $tag = 'ul', $class = '')
     }
 
     return $newstring . '</' . $tag . '>';
+}
+
+// Remove Default Post type
+add_action('admin_menu','remove_default_post_type');
+
+function remove_default_post_type() {
+	remove_menu_page('edit.php');
 }

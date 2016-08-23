@@ -19,6 +19,11 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php  crockpot_2016_entry_footer(); ?>
+		<?php  crockpot_2016_entry_footer();
+				the_taxonomies();
+
+		?>
+
+
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
